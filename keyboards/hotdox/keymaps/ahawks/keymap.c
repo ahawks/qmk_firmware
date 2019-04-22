@@ -9,8 +9,7 @@
 
 
 enum custom_keycodes {
-  VRSN = SAFE_RANGE,
-  RGB_SLD
+  TEST = SAFE_RANGE
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -54,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                    KC_H,   KC_J,  KC_K,   KC_L,   KC_SCLN, KC_QUOT,
         KC_RPRN,   KC_N,   KC_M,  KC_COMM,KC_DOT, KC_SLSH, KC_RSPC,
                                   MO(1),MO(2),MO(3),TO(0), KC_ENT,
-             KC_LBRC,KC_RBRC,
+             KC_LBRC,KC_F13,
              KC_DEL,
              KC_BSPC,KC_ENT,LT(3,KC_SPC)
     ),
@@ -211,17 +210,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     // dynamically generate these.
-    case VRSN:
+    case TEST:
       if (record->event.pressed) {
-        SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
-      }
-      return false;
-      break;
-    case RGB_SLD:
-      if (record->event.pressed) {
-        #ifdef RGBLIGHT_ENABLE
-          rgblight_mode(1);
-        #endif
+        SEND_STRING ("i am a macro");
       }
       return false;
       break;
