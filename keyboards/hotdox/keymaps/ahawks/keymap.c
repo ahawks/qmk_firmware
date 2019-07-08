@@ -5,7 +5,7 @@
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 #define NUMS 3 // number keys
-#define BLANK 4// blank layer, mostly for reference. 
+#define BLANK 4// blank layer, mostly for reference.
 
 
 enum custom_keycodes {
@@ -32,9 +32,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        ,-------------.       ,-------------.
  *                                        | F10  |  F11 |       |  F12 |  F13  |
  *                                 ,------|------|------|       |------+-------+------.
- *                                 |      |      | Alt  |       | Del  |       |      |
+ *                                 |      |      |  (   |       |  )   |       |      |
  *                                 | -_   | =+   |------|       |------| Enter |Space |
- *                                 | LT3  | LT1  |  [{  |       |  ]}  |       |      |
+ *                                 | LT3  | LT1  | [{   |       |  ]}  |       |      |
  *                                 `--------------------'       `---------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSPO,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_LBRACKET,
         KC_LCTL,        MO(3),        MO(2),  KC_LALT,KC_LGUI,
                                               KC_F10,KC_F11,
-                                                                         KC_LALT,
+                                                                         KC_LPRN,
                                               LT(3,KC_MINS),LT(1,KC_EQL),KC_LBRACKET,
 
         // right hand
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_RBRACKET,   KC_N,   KC_M,  KC_COMM,KC_DOT, KC_SLSH, KC_RSPC,
                                   MO(1),MO(2),MO(3),TO(0), KC_ENT,
              KC_F12,KC_F13,
-             KC_DEL,
+             KC_RPRN,
              KC_RBRACKET,KC_ENT,LT(3,KC_SPC)
     ),
 /* Keymap 1: Symbol Layer
@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS, KC_F6,   KC_F7,  KC_F8,   KC_MINS, KC_EQL,  KC_BSPC,
        KC_TRNS, KC_TRNS, KC_PGUP,KC_UP,   KC_PGDOWN, KC_TRNS, KC_DEL,
                 KC_HOME, KC_LEFT,KC_DOWN, KC_RGHT, KC_END,  KC_ENT,
-       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS,LGUI(KC_COMM), KC_TRNS, KC_TRNS, KC_TRNS,
                          KC_TRNS,KC_TRNS, KC_TRNS, TO(0),  KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
