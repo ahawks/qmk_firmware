@@ -40,22 +40,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
-        KC_GRV,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   KC_MINS,
-        KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_LPRN,
+        KC_GRV,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   KC_F24,
+        KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_F23,
         MT(MOD_LCTL|MOD_LALT, KC_ESC),         KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
-        KC_LSPO,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   LT(3,KC_LBRACKET),
+        KC_LSPO,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_LBRACKET,
         KC_LCTL,        MO(3),        MO(2),  KC_LALT,KC_LGUI,
-                                              KC_F10,KC_F11,
+                                              KC_F21,KC_F20,
                                                                          KC_LPRN,
                                               LT(3,KC_MINS),LT(1,KC_EQL),KC_LBRACKET,
 
         // right hand
-        KC_EQL,    KC_6,   KC_7,  KC_8,   KC_9,   KC_0,    KC_BSPC,
-        KC_RPRN,   KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,    KC_BSLS,
+        KC_F15,    KC_6,   KC_7,  KC_8,   KC_9,   KC_0,    KC_BSPC,
+        KC_F16,   KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,    KC_BSLS,
                    KC_H,   KC_J,  KC_K,   KC_L,   KC_SCLN, KC_QUOT,
-        LT(3,KC_RBRACKET),   KC_N,   KC_M,  KC_COMM,KC_DOT, KC_SLSH, KC_RSPC,
-                                  MO(1),MO(2),MO(3),TO(0), KC_ENT,
-             KC_F12,KC_F13,
+        KC_RBRACKET,   KC_N,   KC_M,  KC_COMM,KC_DOT, KC_SLSH, KC_RSPC,
+                                  LT(1,KC_F14),LT(2,KC_F13),MO(3),TO(0), KC_F12,
+             KC_F19,KC_F18,
              KC_RPRN,
              KC_RBRACKET,KC_ENT,LT(3,KC_SPC)
     ),
@@ -148,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // A blank layer
 [NUMS] = LAYOUT_ergodox(
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), LSFT(KC_4), LSFT(KC_5), KC_TRNS,
        KC_TRNS, KC_1, KC_2, KC_3, KC_4, KC_5,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -157,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   KC_TRNS, KC_TRNS, KC_TRNS,
     // right hand
        KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_MINUS, KC_EQUAL, KC_BSPACE,
-       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS,  LSFT(KC_6), LSFT(KC_7), LSFT(KC_8), LSFT(KC_9), LSFT(KC_0), KC_TRNS,
                  KC_6, KC_7, KC_8, KC_9, KC_0, KC_ENTER,
        KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -217,7 +217,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING ("i am a macro");
       }
       return false;
-      break;
   }
   return true;
 }
